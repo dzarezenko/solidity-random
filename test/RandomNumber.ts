@@ -22,7 +22,11 @@ describe("RandomNumber", function () {
     it("Test 1", async function () {
       const { randomNumberContract } = await loadFixture(deployAndInitFixture);
 
-      //TODO: add logic
+      for (let i = 0; i < 15; i++) {
+        let rand = await randomNumberContract.random(1000000);
+        await time.increase(30);
+        console.log(rand);
+      }
     });
 
   });
