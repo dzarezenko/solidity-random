@@ -23,7 +23,7 @@ describe("RandomNumber", function () {
       const { randomNumberContract } = await loadFixture(deployAndInitFixture);
 
       for (let i = 0; i < 15; i++) {
-        let rand = await randomNumberContract.random(1000000);
+        let rand = await randomNumberContract.random(ethers.parseEther("100.00"));
         await time.increase(30);
         console.log(rand);
       }
