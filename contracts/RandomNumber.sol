@@ -7,7 +7,15 @@ contract RandomNumber {
   constructor() {}
 
   function random(uint256 max) external view returns (uint256) {
-    return uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao))) % max;
+    return uint256(keccak256(abi.encodePacked(
+      block.timestamp,
+      "-",
+      tx.origin,
+      "-",
+      blockhash(block.number - 1),
+      "-",
+      block.prevrandao
+    ))) % max;
   }
 
 }

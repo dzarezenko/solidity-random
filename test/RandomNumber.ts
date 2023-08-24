@@ -18,8 +18,9 @@ describe("RandomNumber", function () {
     return { randomNumberContract, owner, otherAccount };
   }
 
-  describe("Deployment", function () {
-    it("Test 1", async function () {
+  describe("Random numbers generation", function () {
+
+    it("Simple random numbers generation", async function () {
       const { randomNumberContract } = await loadFixture(deployAndInitFixture);
 
       for (let i = 0; i < 15; i++) {
